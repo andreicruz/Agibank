@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import luke from '../../assets/luke.jpg';
-import lightside from '../../assets/lightside.png';
+import leia from '../../assets/leia.jpg';
+import darth from '../../assets/darth-vader.jpg';
+import han from '../../assets/han-solo.jpg';
+import classNames from 'classnames'
 import ky from 'ky';
 import './style.sass';
 import '../../style.sass';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-}));
-
 
 export const getPersons = () => ky.get("https://swapi.co/api/people").json();
 
 export default function GridComponent() {
-  const classes = useStyles();
   const [people, setPerson] = useState([]);
+  const [isOpened, setValue] = useState(false);
 
   async function loadPersons() {
     const response = await getPersons();
@@ -39,10 +30,14 @@ export default function GridComponent() {
         <div className="image grid-form">
           <img src={luke}/>
         </div>
-        <div className="info grid-form mx-3">
-          <div className="bio grid-form">
-            <p>Informações</p>
-          </div>
+        <div className="image grid-form ml-2">
+          <img src={leia}/>
+        </div>
+        <div className="image grid-form ml-2">
+          <img src={darth}/>
+        </div>
+        <div className="image grid-form ml-2">
+          <img src={han}/>
         </div>
       </div>
     </React.Fragment>
