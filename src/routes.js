@@ -9,10 +9,11 @@ import GridComponent from './Components/GridComponent/index';
 
 export default function Routes() {
   return (
-    
     <Router>      
       <Switch>
         <Route exact path="/personagens" component={GridComponent}/>
+        <Route exact path="/filmes" component={GridComponent}/>
+        <Route exact path="/planetas" component={GridComponent}/>
         <Route path="/" component={HomeComponent}/>
       </Switch>
     </Router>
