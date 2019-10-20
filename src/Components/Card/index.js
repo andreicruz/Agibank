@@ -11,12 +11,11 @@ import ky from 'ky';
 export default function CardComponent(route) {
   const getPersons = () => ky.get(`https://swapi.co/api/${route.name}`).json();
   const [apiReturn, setReturn] = useState([]);
+  const data = apiReturn.map(item => item.results)
 
   async function loadReturn() {
     const response = await getPersons();
-    setReturn([
-      response
-    ]);
+    setReturn([response]);
   }
 
   useEffect(() => {
@@ -26,26 +25,14 @@ export default function CardComponent(route) {
   return (
     <React.Fragment>
       <ul>
-        <li>teste</li>
-      </ul>
-      {/* <ul>
-        {apiReturn.map(item => (
-          item.results.forEach(element => (
+        {data.map(item => (
+          item.map(element => (
             <li key={Math.random()}>
               {element.name}
-          </li>
+            </li>
           ))
         ))}
-      </ul> */}
-      {/* {apiReturn.forEach(item => {
-        item.results.forEach(result => {
-          <div className="grid my-5">
-            <div className="image grid-form">
-              <h1>{result.name}</h1>
-            </div>
-          </div>
-        })
-      })} */}
+      </ul>
       <div className="grid my-5">
         <div className="image grid-form">
           <img src={luke}/>
