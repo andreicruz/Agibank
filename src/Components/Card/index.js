@@ -37,6 +37,9 @@ export default function CardComponent(route) {
   function getImages(actualRoute) {
     console.log('route ', actualRoute.name)
     const teste = actualRoute.name;
+
+    // TODO: ADicionar um novo atributo nas rotas com o tipo
+    // a partir desse atributo, verificar se bate com a minha rota atual
     const object = [];
     data.forEach(element => {
       element.forEach(element => {
@@ -62,10 +65,6 @@ export default function CardComponent(route) {
   useEffect(() => {
     getImages(actualRoute);
   }, [apiReturn]);
-
-  // Todo: Ajustar para uma função
-  // Verifica se o objeto da api está no array de imagens
-
   
   return (
     <React.Fragment>
