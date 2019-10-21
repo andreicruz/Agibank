@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Spinner, Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import './style.sass';
 import luke from '../../assets/luke.jpg';
 import leia from '../../assets/leia.jpg';
@@ -7,12 +8,11 @@ import darth from '../../assets/darth-vader.jpg';
 import c3po from '../../assets/c3po.jpg';
 import r2d2 from '../../assets/r2-d2.jpg';
 import defaultImage from '../../assets/default.jpg';
-import classNames from 'classnames'
 import ky from 'ky';
 
 
 export default function CardComponent(route) {
-  const getPersons = () => ky.get(`https://swapi.co/api/${route.name}`).json();
+  const getData = () => ky.get(`https://swapi.co/api/${route.name}`).json();
   const [apiReturn, setReturn] = useState([]);
   const [objects, setObjects] = useState([]);
   const [actualRoute, setRoute] = useState('');
@@ -38,7 +38,7 @@ export default function CardComponent(route) {
   const data = apiReturn.map(item => item.results)
 
   async function loadReturn() {
-    const response = await getPersons();
+    const response = await getData();
     setReturn([response]);
   }
 
@@ -83,9 +83,11 @@ export default function CardComponent(route) {
                 }
               >
                 <Col md={3}>
-                  <div key={index} className="image grid-form">
-                    <img src={data.path} />
-                  </div>
+                  <Link to={actualRoute.name + `/` + (index + 1) }>
+                    <div key={index} className="image grid-form">
+                      <img src={data.path} />
+                    </div>
+                  </Link>
                 </Col>
               </OverlayTrigger>
             ))
