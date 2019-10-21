@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Spinner, Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import './style.sass';
 import luke from '../../assets/luke.jpg';
 import leia from '../../assets/leia.jpg';
-import r2d2 from '../../assets/darth-vader.jpg';
+import darth from '../../assets/darth-vader.jpg';
+import c3po from '../../assets/c3po.jpg';
+import r2d2 from '../../assets/r2-d2.jpg';
 import defaultImage from '../../assets/default.jpg';
-import han from '../../assets/han-solo.jpg';
 import classNames from 'classnames'
 import ky from 'ky';
 
@@ -19,15 +20,15 @@ export default function CardComponent(route) {
     {
       people: [
         { name: 'luke', path: luke },
-        { name: 'c', path: defaultImage },
-        { name: 'r2', path: defaultImage },
-        { name: 'darth', path: r2d2 },
-        // { name: 'leia', path: leia},
-        // { name: 'owen', path: defaultImage},
-        // { name: 'beru', path: defaultImage},
-        // { name: 'r5', path: defaultImage},
-        // { name: 'biggs', path: defaultImage},
-        // { name: 'obi', path: defaultImage}
+        { name: 'c', path: c3po },
+        { name: 'r2', path: r2d2 },
+        { name: 'darth', path: darth },
+        { name: 'leia', path: leia},
+        { name: 'owen', path: defaultImage},
+        { name: 'beru', path: defaultImage},
+        { name: 'r5', path: defaultImage},
+        { name: 'biggs', path: defaultImage},
+        { name: 'obi', path: defaultImage}
       ],
       planets: [
         { name: 'alderaan', path: r2d2 }
@@ -69,24 +70,27 @@ export default function CardComponent(route) {
   return (
     <React.Fragment>
       <div className="grid my-5">
-        {objects.map(data => (
-          ['top'].map(placement => (
-            <OverlayTrigger
-              key={placement}
-              placement={placement}
-              overlay={
-                <Tooltip id={`tooltip-${placement}`}>
-                  {data.object.name}
-                </Tooltip>
-              }
-            >
-              <div key={Math.random()} className="image grid-form col-3">
-                {/* <h1>{data.object.name}</h1> */}
-                <img src={data.path} />
-              </div>
-            </OverlayTrigger>
-          ))
-        ))}
+        <Row>
+          {objects.map((data, index) => (
+            ['top'].map(placement => (
+              <OverlayTrigger
+                key={placement}
+                placement={placement}
+                overlay={
+                  <Tooltip id={`tooltip-${placement}`}>
+                    <p className="font-sw">{data.object.name}</p>
+                  </Tooltip>
+                }
+              >
+                <Col md={3}>
+                  <div key={index} className="image grid-form">
+                    <img src={data.path} />
+                  </div>
+                </Col>
+              </OverlayTrigger>
+            ))
+          ))}
+        </Row>
       </div>
     </React.Fragment>
   )
