@@ -9,12 +9,15 @@ import c3po from '../../assets/c3po.jpg';
 import r2d2 from '../../assets/r2-d2.jpg';
 import defaultImage from '../../assets/default.jpg';
 import ky from 'ky';
+import Card from '../Card/index';
 
 
 export default function CardsComponent(route) {
   const getData = () => ky.get(`https://swapi.co/api/${route.name}`).json();
+  const id = 0;
   const [apiReturn, setReturn] = useState([]);
   const [objects, setObjects] = useState([]);
+  const [isHovered, setHovered] = useState(0);
   const [actualRoute, setRoute] = useState('');
   const [imagesCharacters] = useState([
     {
@@ -72,25 +75,9 @@ export default function CardsComponent(route) {
       <div className="grid my-5">
         <Row>
           {objects.map((data, index) => (
-            ['top'].map(placement => (
-              <OverlayTrigger
-                key={placement}
-                placement={placement}
-                overlay={
-                  <Tooltip id={`tooltip-${placement}`}>
-                    <p className="font-sw">{data.object.name}</p>
-                  </Tooltip>
-                }
-              >
-                <Col md={3}>
-                  <Link to={actualRoute.name + `/` + (index + 1) }>
-                    <div key={index} className="image grid-form">
-                      <img src={data.path} />
-                    </div>
-                  </Link>
-                </Col>
-              </OverlayTrigger>
-            ))
+            <Col md={3} key={index + 1}>
+              <Card index={index + 1} path={data.path}/>
+            </Col>
           ))}
         </Row>
       </div>
