@@ -7,19 +7,24 @@
     background-position: center center
     background-repeat: no-repeat
     background-size: cover
+    flex: 1
     height: 325px
     position: relative
     object-fit: cover
     transform-style: preserve-3d
-    transition: transform 0.7s  
-    width: 100%
+    transition: transform 0.7s 
+    transform: skew(-20deg)
 
 .font-sw
   padding: 0px
 
+.hover-card
+  flex-basis: 15% !important
+  transition: transform 0.7s 
+
 .flip-card
   // width: 500px !important
-  background-image: none
+  background-image: none !important
   transform: rotateY(180deg) !important
 
 .grid-form--card

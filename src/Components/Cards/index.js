@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Row, Col} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './style.sass';
 import luke from '../../assets/luke.jpg';
@@ -72,14 +72,14 @@ export default function CardsComponent(route) {
 
   return (
     <React.Fragment>
-      <div className="grid my-5">
-        <Row>
+      <div className="grid my-5 d-flex">
+        {/* <Row> */}
           {objects.map((data, index) => (
-            <Col md={3} key={index + 1}>
-              <Card index={index + 1} path={data.path}/>
-            </Col>
+            // <Col md={3} key={index + 1}>
+              <Card index={index + 1} path={data.path} data={data}/>
+            // </Col>
           ))}
-        </Row>
+        {/* </Row> */}
       </div>
     </React.Fragment>
   )
