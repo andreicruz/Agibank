@@ -7,10 +7,13 @@ export default function Card(element){
   console.log(`path `, element.path)
   console.log(`object `, element.data.object)
   const [isHovered, setHovered] = useState(false);
+  const [isClicked, setClick] = useState(false);
+
   return(
     <React.Fragment>
       {/* <div className="grid-form grid-form--card"> */}
-        <div className={classNames("background", {"hover-card": isHovered})}
+        <div onClick={() => setClick(!isClicked)}
+            className={classNames("background", {"hover-card": isHovered}, {"flip-card": isClicked})}
             style={{backgroundImage: `url(${element.path})`}}
             onMouseEnter={() => setHovered(true)} 
             onMouseOut={() => setHovered(!isHovered)}
