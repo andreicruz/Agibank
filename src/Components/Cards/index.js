@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col} from 'react-bootstrap';
-import { Link } from "react-router-dom";
 import './style.sass';
 import luke from '../../assets/luke.jpg';
 import leia from '../../assets/leia.jpg';
@@ -13,12 +11,11 @@ import Card from '../Card/index';
 
 
 export default function CardsComponent(route) {
-  const getData = () => ky.get(`https://swapi.co/api/${route.name}`).json();
-  const id = 0;
+  const getData = () => ky.get(`https://swapi.co/api/${route.name}/?page=${page}`).json();
   const [apiReturn, setReturn] = useState([]);
   const [objects, setObjects] = useState([]);
-  const [isHovered, setHovered] = useState(0);
   const [actualRoute, setRoute] = useState('');
+  const [page, setPage] = useState(1);
   const [imagesCharacters] = useState([
     {
       people: [
@@ -31,7 +28,17 @@ export default function CardsComponent(route) {
         { name: 'beru', path: defaultImage},
         { name: 'r5', path: defaultImage},
         { name: 'biggs', path: defaultImage},
-        { name: 'obi', path: defaultImage}
+        { name: 'obi', path: defaultImage},
+        { name: 'boba', path: defaultImage},
+        { name: 'ig', path: defaultImage},
+        { name: 'bossk', path: defaultImage},
+        { name: 'lando', path: defaultImage},
+        { name: 'lobot', path: defaultImage},
+        { name: 'ackbar', path: defaultImage},
+        { name: 'mon', path: defaultImage},
+        { name: 'arvel', path: defaultImage},
+        { name: 'wicket', path: defaultImage},
+        { name: 'nien', path: defaultImage},
       ],
       planets: [
         { name: 'alderaan', path: r2d2 }
@@ -42,11 +49,13 @@ export default function CardsComponent(route) {
 
   async function loadReturn() {
     const response = await getData();
-    setReturn([response]);
+    // console.log(response)
+    setReturn([...apiReturn, response]);
   }
 
   function getImages(actualRoute) {
     const object = [];
+    console.log(data)
     data.forEach(element => {
       element.forEach(element => {
         imagesCharacters.forEach(item => {
@@ -65,10 +74,21 @@ export default function CardsComponent(route) {
     setRoute(route);
     loadReturn();
   }, []);
-
+  
   useEffect(() => {
+    // setPage(apiReturn.map(item => item.next.split('=')[1]))
+    // loadReturn();
+    if(page <= 1) {
+      setPage(page + 1);
+    }
     getImages(actualRoute);
   }, [apiReturn]);
+
+  useEffect(() => {
+    // if(page <= 2){
+      loadReturn();
+    // }
+  }, [page]);
 
   return (
     <React.Fragment>
@@ -76,11 +96,12 @@ export default function CardsComponent(route) {
         {/* <Row> */}
           {objects.map((data, index) => (
             // <Col md={3} key={index + 1}>
-              <Card index={index + 1} path={data.path} data={data}/>
+              <Card key={index+1} index={index + 1} path={data.path} data={data}/>
             // </Col>
           ))}
         {/* </Row> */}
       </div>
+      <button onClick={() => {setPage(page + 1)}}>load more</button>
     </React.Fragment>
   )
 }
