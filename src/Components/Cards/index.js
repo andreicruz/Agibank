@@ -35,6 +35,17 @@ export default function CardsComponent(route) {
         { name: 'r5', path: defaultImage},
         { name: 'biggs', path: defaultImage},
         { name: 'obi', path: defaultImage},
+        { name: 'anakin', path: defaultImage},
+        { name: 'wilhuff', path: defaultImage},
+        { name: '', path: defaultImage},
+        { name: 'chewbacca', path: defaultImage},
+        { name: 'han', path: defaultImage},
+        { name: 'greedo', path: defaultImage},
+        { name: 'jabba', path: defaultImage},
+        { name: 'wedge', path: defaultImage},
+        { name: 'jek', path: defaultImage},
+        { name: 'yoda', path: defaultImage},
+        { name: 'palpatine', path: defaultImage},
         { name: 'boba', path: defaultImage},
         { name: 'ig', path: defaultImage},
         { name: 'bossk', path: defaultImage},
@@ -83,9 +94,9 @@ export default function CardsComponent(route) {
   useEffect(() => {
     // setPage(apiReturn.map(item => item.next.split('=')[1]))
     // loadReturn();
-    if(page <= 1) {
-      setPage(page + 1);
-    }
+    // if(page <= 1) {
+    //   setPage(page + 1);
+    // }
     getImages(actualRoute);
   }, [apiReturn]);
 
