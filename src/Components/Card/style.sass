@@ -1,6 +1,7 @@
 .grid
+  flex-wrap: wrap
   // display: flex
-  padding: 0px 80px
+  // padding: 0px 80px
   .background
     margin-bottom: 10px
     border: 2px solid #F9E915
@@ -8,6 +9,8 @@
     background-repeat: no-repeat
     background-size: cover
     flex: 1
+    // flex-basis: 10%
+    min-width: 100px
     height: 325px
     position: relative
     object-fit: cover
@@ -20,12 +23,41 @@
 
 .hover-card
   flex-basis: 15% !important
+  // min-width: 200px !important
+
+.active-card
+  flex-basis: 100% !important
+  // transition: width 2s
+  // min-width: 1140px !important
 
 .flip-card
   // width: 500px !important
   background-image: none !important
-  background-color: white !important
-  transform: rotateY(180deg) !important
+  // background-color: white !important
+  transform: skew(-20deg) rotateY(180deg) !important
 
 .grid-form--card
   border: 0px !important
+
+// .container
+//   margin: 150px auto
+//   max-width: 800px
+//   padding: 20px
+//   -webkit-display: -webkit-box
+//   -webkit-display: -webkit-flex
+//   display: -webkit-box
+//   display: -ms-flexbox
+//   display: flex
+//   background-color: #594255
+
+// .item
+//   background-color: #fff
+//   width: 100px
+//   height: 100px
+//   margin: 2px
+//   text-align: center
+//   line-height: 100px
+//   font-weight: bold
+//   font-family: sans-serif
+//   font-size: 7em
+//   color: #594255
