@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 import './style.sass';
 
@@ -20,16 +21,15 @@ export default function Card(element){
   return(
     <React.Fragment>
       {/* <div className="grid-form grid-form--card"> */}
-        <div onClick={() => setClick(!isClicked)}
-            className={classNames("background", {"hover-card": isHovered}, {"flip-card": isClicked}, {"active-card": isClicked})}
-            style={{backgroundImage: `url(${element.path})`}}
-            onMouseEnter={() => setHovered(true)} 
-            onMouseOut={() => setHovered(false)}
-        >
-          <p>{element.data.object.name}</p>    
-              <p>{element.data.object.name}</p>
-          <p>{element.data.object.name}</p>    
+      <Link to={`people/` + element.index} className={classNames({"hover-card": isHovered})} params={'oi'}>
+        <div
+          className={classNames("background", {"hover-card": isHovered})}
+          style={{backgroundImage: `url(${element.path})`}}
+          onMouseEnter={() => setHovered(true)} 
+          onMouseOut={() => setHovered(false)}
+        >  
         </div>
+      </Link>
         {/* <p style={{display: isClicked ? 'block' : 'none' }}>{element.data.object.name}</p> */}
       {/* </div> */}
     </React.Fragment>
