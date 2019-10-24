@@ -33,7 +33,7 @@ export default function PageIntern(route) {
                 <span className="font-sw">Blond</span>
               </div>
             {/* // ))} */}
-            <Row>
+            {/* <Row>
               <Col xs={3}>
                 <div key={Math.random()} className="image">
                   <img src={luke} />
@@ -61,7 +61,7 @@ export default function PageIntern(route) {
                   <img src={luke} />
                 </div>
               </Col>
-            </Row>
+            </Row> */}
           </div>
         </div>
       </div>

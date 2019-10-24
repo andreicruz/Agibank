@@ -9,13 +9,13 @@ export default function Card(element){
   const [isHovered, setHovered] = useState(false);
   const [isClicked, setClick] = useState(false);
 
-  function mouseOut(){
-    if(isClicked){
-      setHovered(true)
-    }else{
-      setHovered(!isHovered)
-    }
-  }
+  // function mouseOut(){
+  //   if(isClicked){
+  //     setHovered(true)
+  //   }else{
+  //     setHovered(!isHovered)
+  //   }
+  // }
 
   return(
     <React.Fragment>
@@ -24,11 +24,13 @@ export default function Card(element){
             className={classNames("background", {"hover-card": isHovered}, {"flip-card": isClicked}, {"active-card": isClicked})}
             style={{backgroundImage: `url(${element.path})`}}
             onMouseEnter={() => setHovered(true)} 
-            onMouseOut={() => mouseOut()}
+            onMouseOut={() => setHovered(false)}
         >
+          <p>{element.data.object.name}</p>    
               <p>{element.data.object.name}</p>
-          
+          <p>{element.data.object.name}</p>    
         </div>
+        {/* <p style={{display: isClicked ? 'block' : 'none' }}>{element.data.object.name}</p> */}
       {/* </div> */}
     </React.Fragment>
   )

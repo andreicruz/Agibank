@@ -11,7 +11,13 @@ import Card from '../Card/index';
 
 
 export default function CardsComponent(route) {
-  const getData = () => ky.get(`https://swapi.co/api/${route.name}/?page=${page}`).json();
+  const getData = () => ky.get(`https://swapi.co/api/${route.name}/?page=${page}`, {
+		retry: {
+      limit: 10,
+			methods: ['get'],
+			statusCodes: [408]
+		}
+	}).json();
   const [apiReturn, setReturn] = useState([]);
   const [objects, setObjects] = useState([]);
   const [actualRoute, setRoute] = useState('');
@@ -55,7 +61,6 @@ export default function CardsComponent(route) {
 
   function getImages(actualRoute) {
     const object = [];
-    console.log(data)
     data.forEach(element => {
       element.forEach(element => {
         imagesCharacters.forEach(item => {
