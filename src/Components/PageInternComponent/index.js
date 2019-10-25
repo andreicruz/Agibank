@@ -6,8 +6,15 @@ import luke from '../../assets/luke.jpg';
 
 export default function PageIntern(route) {
   const getData = () => ky.get(`https://swapi.co/api${route.location.pathname}`).json();
+  // const getFilms = ()=> ky.get(`https://swapi.co/api${route.location.pathname}`).json();
   const [apiReturn, setReturn] = useState([]);
-  console.log(route.location.pathname)
+  const [storageMovies, setStorageMovies] = useState([]);
+  let movies = [1,2,3];
+  const getFilms = async (id) =>{
+    const res = await fetch(`https://swapi.co/api/films/${id}`);
+    const data = await res.json();
+    return data;
+  }
 
   async function loadReturn() {
     const response = await getData();
@@ -18,7 +25,37 @@ export default function PageIntern(route) {
     loadReturn();
   }, []);
 
-  console.log(apiReturn.map(element => console.log(element.films)))
+  useEffect(() => {
+    storageFilms();
+  }, [apiReturn]);
+
+  useEffect(() => {
+    // console.log('storageee', storageMovies)
+    
+    if(storageMovies.length > 0){
+      // storageMovies.forEach((item,index) => movies.push(item[index]))
+      movies = storageMovies.map(async film => {
+        const teste = await getFilms(film)
+        return teste
+      });
+    
+      console.log('movies ', movies);
+      (async () => {
+        const resultado = await Promise.all(movies);
+        console.log('ress ', resultado);
+      })();
+    }
+  
+  }, [storageMovies]);
+
+  function storageFilms() {
+    const films = apiReturn.map(element => element.films.map(film => parseInt(film.split('/')[5])));
+    movies.push(films.forEach((item, index) => item[index]))
+    setStorageMovies(films)
+  }
+
+
+
   return (
     <React.Fragment>
       {apiReturn.map((element, index) => (
