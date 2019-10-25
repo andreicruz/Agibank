@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import classNames from "classnames";
 import ky from 'ky';
 import './style.sass';
 import luke from '../../assets/luke.jpg';
+import { listObjects } from '../../utils/index.js';
 
 export default function PageIntern(route) {
   const getData = () => ky.get(`https://swapi.co/api${route.location.pathname}`).json();
-  // const getFilms = ()=> ky.get(`https://swapi.co/api${route.location.pathname}`).json();
   const [apiReturn, setReturn] = useState([]);
   const [storageMovies, setStorageMovies] = useState([]);
-  let movies = [1,2,3];
+  const [characterMovies, setCharacterMovies] = useState([]);
+  const [data, setData] = useState([]);
+  const objects = listObjects();
+
   const getFilms = async (id) =>{
     const res = await fetch(`https://swapi.co/api/films/${id}`);
     const data = await res.json();
@@ -30,32 +33,48 @@ export default function PageIntern(route) {
   }, [apiReturn]);
 
   useEffect(() => {
-    // console.log('storageee', storageMovies)
-    
     if(storageMovies.length > 0){
-      // storageMovies.forEach((item,index) => movies.push(item[index]))
-      movies = storageMovies.map(async film => {
-        const teste = await getFilms(film)
-        return teste
+      const movies = storageMovies[0].map(async film => {
+        const data = await getFilms(film)
+        return data
       });
     
-      console.log('movies ', movies);
       (async () => {
-        const resultado = await Promise.all(movies);
-        console.log('ress ', resultado);
+        const result = await Promise.all(movies);
+        setCharacterMovies(result)
       })();
     }
   
+    getImages();
   }, [storageMovies]);
+
+
+  useEffect(() => {
+    getImages();
+  }, [characterMovies]);
 
   function storageFilms() {
     const films = apiReturn.map(element => element.films.map(film => parseInt(film.split('/')[5])));
-    movies.push(films.forEach((item, index) => item[index]))
     setStorageMovies(films)
   }
 
+  function getImages(){
+    if(characterMovies.length > 0) {
+      const teste = [];
+      characterMovies.forEach(movie => {
+        objects.forEach(object => {
+          object['movies'].map((item => {
+            if(movie.title.toLowerCase().search(item.name) != -1){
+              teste.push(item);
+            }
+          }))
+        })
+      })
+      setData(teste);
+    }
+  }
 
-
+  // console.log(`fcharacter movies` , characterMovies)
   return (
     <React.Fragment>
       {apiReturn.map((element, index) => (
@@ -86,10 +105,18 @@ export default function PageIntern(route) {
                     </div>
                   </div>
                 </div>
-                <div>
-                  {element.films.map(item => (
-                    <h3>{item}</h3>
+                <div className="teste">
+                  {data.map(data => (
+                    <div
+                      className={classNames("background")}
+                      style={{backgroundImage: `url(${data.path})`}}
+                    >  
+                    </div>
+                    // <img src={data.path}/>
                   ))}
+                  {/* {characterMovies.map(item => (
+                    <h3>{item.title}</h3>
+                  ))} */}
                 </div>
               {/* <Row>
                 <Col xs={3}>
