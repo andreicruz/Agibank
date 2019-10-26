@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CardsComponent from '../Cards/index.js';
 
 export default function GridComponent(route) {

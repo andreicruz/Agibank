@@ -10,7 +10,8 @@ export default function PageIntern(route) {
   const [apiReturn, setReturn] = useState([]);
   const [storageMovies, setStorageMovies] = useState([]);
   const [characterMovies, setCharacterMovies] = useState([]);
-  const [data, setData] = useState([]);
+  const [imageMovies, setMovies] = useState([]);
+  const [characterImage, setCharacterImage] = useState([]);
   const objects = listObjects();
 
   const getFilms = async (id) =>{
@@ -30,6 +31,7 @@ export default function PageIntern(route) {
 
   useEffect(() => {
     storageFilms();
+    getImages();
   }, [apiReturn]);
 
   useEffect(() => {
@@ -44,13 +46,11 @@ export default function PageIntern(route) {
         setCharacterMovies(result)
       })();
     }
-  
-    getImages();
   }, [storageMovies]);
 
 
   useEffect(() => {
-    getImages();
+    getMovieImages();
   }, [characterMovies]);
 
   function storageFilms() {
@@ -58,30 +58,49 @@ export default function PageIntern(route) {
     setStorageMovies(films)
   }
 
-  function getImages(){
+  function getMovieImages(){
     if(characterMovies.length > 0) {
-      const teste = [];
+      const data = [];
       characterMovies.forEach(movie => {
         objects.forEach(object => {
-          object['movies'].map((item => {
-            if(movie.title.toLowerCase().search(item.name) != -1){
-              teste.push(item);
+          object['movies'].forEach(item => {
+            if(movie.title.toLowerCase().search(item.name) !== -1){
+              data.push(item);
             }
-          }))
+          })
         })
       })
-      setData(teste);
+      setMovies(data);
     }
   }
 
-  // console.log(`fcharacter movies` , characterMovies)
+  function getImages(){
+    const data = [];
+    apiReturn.forEach(element => {
+      objects.forEach(object => {
+        object['people'].forEach(item =>{ 
+          if(element.name.toLowerCase().search(item.name) !== -1){
+            data.push(item);
+          }
+        })
+      })
+    })
+    setCharacterImage(data);
+  }
+
+  console.log(`fimagemoviess` , imageMovies)
   return (
     <React.Fragment>
       {apiReturn.map((element, index) => (
         <div className="grid-form grid-form--intern">
           <div className="grid-intern">
-            <div className="image">
-              <img src={luke} />
+            <div className="photo photo--character">
+              {characterImage.map(data => (
+                  <div
+                  className={classNames("background background--character")}
+                  style={{backgroundImage: `url(${ data.path})`}}
+                > </div>
+              ))}
             </div>
             <div className="about">            
                 <div className="title">
@@ -105,51 +124,15 @@ export default function PageIntern(route) {
                     </div>
                   </div>
                 </div>
-                <div className="teste">
-                  {data.map(data => (
+                <div className="photo">
+                  {imageMovies.map(data => (
                     <div
                       className={classNames("background")}
-                      style={{backgroundImage: `url(${data.path})`}}
+                      style={{backgroundImage: `url(${ imageMovies.length <= 2 ? data.pathLargeImage : data.path})`}}
                     >  
                     </div>
-                    // <img src={data.path}/>
                   ))}
-                  {/* {characterMovies.map(item => (
-                    <h3>{item.title}</h3>
-                  ))} */}
                 </div>
-              {/* <Row>
-                <Col xs={3}>
-                  <div key={Math.random()} className="image">
-                    <img src={luke} />
-                  </div>
-                </Col>
-                <Col xs={3}>
-                  <div key={Math.random()} className="image">
-                    <img src={luke} />
-                  </div>
-                </Col>
-                <Col xs={3}>
-                  <div key={Math.random()} className="image">
-                    <img src={luke} />
-                  </div>
-                </Col>
-                <Col xs={3}>
-                  <div key={Math.random()} className="image">
-                    <img src={luke} />
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={3}>
-                  <div key={Math.random()} className="image">
-                    <img src={luke} />
-                  </div>
-                </Col>
-              </Row> */}
-            </div>
-            <div className="image">
-              <img src={luke} />
             </div>
           </div>
         </div>

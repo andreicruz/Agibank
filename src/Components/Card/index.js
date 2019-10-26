@@ -8,7 +8,6 @@ export default function Card(element){
   // console.log(`path `, element.path)
   // console.log(`object `, element.data.object.name)
   const [isHovered, setHovered] = useState(false);
-  const [isClicked, setClick] = useState(false);
 
   // function mouseOut(){
   //   if(isClicked){
