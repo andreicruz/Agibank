@@ -10,7 +10,7 @@
     background-size: cover
     flex: 1
     // flex-basis: 10%
-    min-width: 100px
+    // min-width: 100px
     height: 325px
     margin: 0px 0px 5px 5px
     position: relative
@@ -18,6 +18,14 @@
     transform-style: preserve-3d
     transition: transform 0.7s 
     transform: skew(-20deg)
+
+@media only screen and (max-width: 1024px)
+  .grid
+    .background
+      transform: none
+
+a
+  flex: 1
 
 .font-sw
   padding: 0px

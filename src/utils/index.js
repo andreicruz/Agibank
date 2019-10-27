@@ -19,7 +19,7 @@ import leia from '../assets/leia.jpg';
 
 export const listObjects = () => {
   const allMovies = [{
-      movies: [
+      films: [
         { name: 'hope', path: hope, pathLargeImage: hopeLarge},
         { name: 'return', path: returnJedi, pathLargeImage: returnJediLarge },
         { name: 'empire', path: empire, pathLargeImage: empireLarge },
@@ -32,6 +32,10 @@ export const listObjects = () => {
         { name: 'luke', path: luke },
         { name: 'c-3po', path: c3po },
         { name: 'leia', path: leia},
+        // { name: 'c-3po', path: c3po},
+      ],
+      planets: [
+        { name: 'alderaan', path: luke },
         // { name: 'c-3po', path: c3po},
       ]
   }]

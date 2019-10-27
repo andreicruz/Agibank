@@ -62,7 +62,7 @@ export default function PageIntern(route) {
       const data = [];
       characterMovies.forEach(movie => {
         objects.forEach(object => {
-          object['movies'].forEach(item => {
+          object['films'].forEach(item => {
             if(movie.title.toLowerCase().search(item.name) !== -1){
               data.push(item);
             }
