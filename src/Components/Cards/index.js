@@ -66,7 +66,6 @@ export default function CardsComponent(route) {
 
   async function loadReturn() {
     const response = await getData();
-    // console.log(response)
     setReturn([...apiReturn, response]);
   }
 
@@ -117,7 +116,7 @@ export default function CardsComponent(route) {
           ))}
         {/* </Row> */}
       </div>
-      <button onClick={() => {setPage(page + 1)}}>load more</button>
+      <button className="deg_btn" onClick={() => {setPage(page + 1)}}>+</button>
     </React.Fragment>
   )
 }
