@@ -7,9 +7,9 @@ import Planets from '../../assets/Planets.jpg';
 export default function Home() {
   return(
       <React.Fragment>
-        <Banner title={'Personagens'} image={Characters}/>
-        <Banner title={'Filmes'} image={Movies}/>
-        <Banner title={'Planetas'} image={Planets}/>
+        <Banner title={'people'} image={Characters}/>
+        <Banner title={'films'} image={Movies}/>
+        <Banner title={'planets'} image={Planets}/>
       </React.Fragment>
     )
   }

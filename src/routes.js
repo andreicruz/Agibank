@@ -12,9 +12,9 @@ export default function Routes() {
   return (
     <Router>      
       <Switch>
-        <Route exact path="/personagens" component={GridComponent}/>
-        <Route exact path="/filmes" component={GridComponent}/>
-        <Route exact path="/planetas" component={GridComponent}/>
+        <Route exact path="/people" component={GridComponent}/>
+        <Route exact path="/films" component={GridComponent}/>
+        <Route exact path="/planets" component={GridComponent}/>
         <Route exact path="/people/:id" component={PageIntern}/>
         <Route path="/" component={HomeComponent}/>
       </Switch>
