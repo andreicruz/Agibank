@@ -1,8 +1,29 @@
-.header-web
-  .menu
-    display: flex
-    .column
-      flex: 1
-      a
-        font-size: 20px
-        text-transform: uppercase
+$header-height: 80px
+
+header
+  height: $header-height  
+  .header-web
+    background-image: linear-gradient(to right, #0f0309, #1b0216, #200423, #1d0733, #080e46)
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24)
+    height: $header-height
+    position: fixed
+    top: 0
+    z-index: 9999
+    width: 100%
+    .menu
+      display: flex
+      height: $header-height
+      .column
+        flex: 1
+        padding: 20px 0px
+        .background
+          background-position: center center
+          background-repeat: no-repeat
+          background-size: cover
+          height: 100%
+          margin: auto
+          width: 50%
+          a
+            color: black
+            font-size: 20px
+            text-shadow: -1px 0 #F9E915, 0 1px #F9E915, 1px 0 #F9E915, 0 -1px #F9E915
