@@ -90,8 +90,8 @@ export default function PageIntern(route) {
   return (
     <React.Fragment>
       {apiReturn.map((element, index) => (
-        <div>
-          <div key={index} className="grid-form grid-form--intern d-none d-md-block">
+        <div key={index}>
+          <div className="grid-form grid-form--intern d-none d-md-block">
             <div className="grid-intern">
               <div className="photo photo--character">
                 {characterImage.map((data, index) => (
