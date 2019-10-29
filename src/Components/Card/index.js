@@ -6,7 +6,7 @@ import './style.sass';
 export default function Card(element){
   const [isHovered, setHovered] = useState(false);
 
-
+  console.log(element)
   // TODO Em cards botei a route. element.route
   return(
     <React.Fragment>
@@ -17,6 +17,7 @@ export default function Card(element){
           onMouseEnter={() => setHovered(true)} 
           onMouseOut={() => setHovered(false)}
         >  
+        <p>{element.data.object.name}</p>
         </div>
       </Link>
     </React.Fragment>

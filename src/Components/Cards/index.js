@@ -26,7 +26,6 @@ export default function CardsComponent(route) {
 
   function getImages(actualRoute) {
     const object = [];
-    console.log(actualRoute.name);
     data.forEach(element => {
       element.forEach(element => {
         objectsa.forEach(item => {
@@ -70,9 +69,15 @@ export default function CardsComponent(route) {
   return (
     <React.Fragment>
       <div className="grid my-5 d-flex">
-          {objects.map((data, index) => (
-              <Card key={index+1} index={index + 1} path={data.path} data={data} route={route}/>
-          ))}
+          {objects.map((data, index) => { 
+            if(index >= 16) {
+              index = index + 1;
+            }
+            if(index >= 34) {
+              index = index + 1;
+            }
+              return (<Card key={index+1} index={index + 1} path={data.path} data={data} route={route}/>)
+          })}
       </div>
       <button style={{display: route.name === 'people' ? 'block' : 'none'}} className="deg_btn" onClick={() => {setPage(page + 1)}}>+</button>
     </React.Fragment>
