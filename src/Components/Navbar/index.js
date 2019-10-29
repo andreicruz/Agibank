@@ -5,6 +5,7 @@ import './style.sass';
 import { Link } from "react-router-dom";
 import header from '../../assets/header.png';
 import { faBars, faHome } from '@fortawesome/free-solid-svg-icons'
+import {Collapse} from 'react-collapse';
 
 export default function Navbar() {
   const [showMenu, setDisplayMenu] = useState(false);
@@ -44,17 +45,21 @@ export default function Navbar() {
               </span>
             </div>
           </div>
-          <div style={{display: showMenu === true ? 'block' : 'none'}} className="hidden-menu">
+        </Container>
+      </header>
+      <Collapse isOpened={showMenu}>
+        <Container>
+          <div className="hidden-menu">
             <ul className="nav navbar-nav">
               {routes.map((data, index) => (
                 <li key={index}>
-                  <Link onClick={() => setDisplayMenu(false)} to={`/` + data.path}>{data.path}</Link>
+                  <Link className="font-sw" onClick={() => setDisplayMenu(false)} to={`/` + data.path}>{data.path}</Link>
                 </li>
               ))}
             </ul>
           </div>
         </Container>
-      </header>
+      </Collapse>
     </React.Fragment>
   )
 }
