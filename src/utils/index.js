@@ -99,6 +99,16 @@ import dameron from '../assets/dameron.jpg';
 import bb8 from '../assets/bb8.jpg';
 import phasma from '../assets/phasma.jpg';
 
+import yavin from '../assets/yavin.jpg';
+import hoth from '../assets/hoth.jpg';
+import dagobah from '../assets/dagobah.jpg';
+import bespin from '../assets/bespin.jpg';
+import endor from '../assets/endor.jpg';
+import naboo from '../assets/naboo.jpg';
+import coruscant from '../assets/coruscant.jpg';
+import kamino from '../assets/kamino.jpg';
+import geonosis from '../assets/geonosis.jpg';
+
 export const listObjects = () => {
   const allMovies = [{
       films: [
@@ -198,8 +208,15 @@ export const listObjects = () => {
         { name: 'captain phasma', path: phasma},
       ],
       planets: [
-        { name: 'alderaan', path: luke },
-        // { name: 'c-3po', path: c3po},
+        { name: 'yavin', path: yavin },
+        { name: 'hoth', path: hoth },
+        { name: 'dagobah', path: dagobah },
+        { name: 'bespin', path: bespin },
+        { name: 'endor', path: endor },
+        { name: 'naboo', path: naboo },
+        { name: 'coruscant', path: coruscant },
+        { name: 'kamino', path: kamino },
+        { name: 'geonosis', path: geonosis },
       ]
   }]
   return allMovies;

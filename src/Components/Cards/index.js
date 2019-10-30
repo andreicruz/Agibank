@@ -72,7 +72,7 @@ export default function CardsComponent(route) {
               return (<Card key={index+1} index={index + 1} path={data.path} data={data} route={route}/>)
           })}
       </div>
-      <button style={{display: route.name === 'people' ? 'block' : 'none'}} className="deg_btn" onClick={() => {setPage(page + 1)}}>+</button>
+      <button style={{display: route.name === 'people' ? 'block' : 'none'}} className="btn button" onClick={() => {setPage(page + 1)}}>+</button>
     </React.Fragment>
   )
 }

@@ -8,9 +8,12 @@ export default function Card(element){
 
   return(
     <React.Fragment>
-      <Link to={`people/` + element.index} className={classNames({"hover-card": isHovered})} target="_blank">
+      <Link to={`people/` + element.index} 
+        style={{display: element.route.name === 'people' ? 'block' : 'none'}}
+        className={classNames({"hover-card": isHovered})} target="_blank"
+      >
         <div className="transform">
-          <p>{element.data.object.name}</p>
+          <p>{element.data.object.name !== undefined ? element.data.object.name : element.data.object.title}</p>
           <div
             className={classNames("background", {"hover-card": isHovered})}
             style={{backgroundImage: `url(${element.path})`}}
@@ -20,6 +23,16 @@ export default function Card(element){
           </div>
         </div>
       </Link>
+      <div className={classNames("transform", {"hover-card": isHovered})} style={{display: element.route.name !== 'people' ? 'block !important' : 'none'}}>
+        <p>{element.data.object.name !== undefined ? element.data.object.name : element.data.object.title}</p>
+        <div
+          className="background"
+          style={{backgroundImage: `url(${element.path})`}}
+          onMouseEnter={() => setHovered(true)} 
+          onMouseOut={() => setHovered(false)}
+        >  
+        </div>
+      </div>
     </React.Fragment>
   )
 }

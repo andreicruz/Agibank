@@ -2,35 +2,35 @@
   flex-wrap: wrap
   a
     flex: 1 1 100px
-    .transform
-      color: white
-      text-align: center
-      text-transform: capitalize
-      transform: skew(-20deg)
-      white-space: nowrap
-      .background
-        margin-bottom: 10px
-        border: 5px solid #000000
-        background-position: center center
-        background-repeat: no-repeat
-        background-size: cover
-        height: 325px
-        margin: 0px 0px 5px 5px
-        position: relative
-        object-fit: cover
-        transform-style: preserve-3d
-        transition: transform 0.7s 
-
-.juca
-  flex: 1
+.transform
+  color: white
+  flex: 1 1 100px
+  text-align: center
+  text-transform: capitalize
+  transform: skew(-20deg)
+  white-space: nowrap
+  .background
+    margin-bottom: 10px
+    border: 5px solid #000000
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+    height: 325px
+    margin: 0px 0px 5px 5px
+    position: relative
+    object-fit: cover
+    transform-style: preserve-3d
+    transition: transform 0.7s 
 
 @media only screen and (max-width: 1024px)
   .grid
-    .background
+    .background, .transform
       transform: none !important
-
-a
-  flex: 1
+    .transform
+      p
+        font-size: 12px
+  .hover-card
+    flex-basis: 0% !important
 
 .font-sw
   padding: 0px
