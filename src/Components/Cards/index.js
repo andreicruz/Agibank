@@ -16,7 +16,7 @@ export default function CardsComponent(route) {
   const [objects, setObjects] = useState([]);
   const [actualRoute, setRoute] = useState('');
   const [page, setPage] = useState(1);
-  const objectsa = listObjects();
+  const listObjects = listObjects();
   const data = apiReturn.map(item => item.results)
 
   async function loadReturn() {
@@ -28,7 +28,7 @@ export default function CardsComponent(route) {
     const object = [];
     data.forEach(element => {
       element.forEach(element => {
-        objectsa.forEach(item => {
+        listObjects.forEach(item => {
           item[actualRoute.name].forEach(data => {
             if(actualRoute.name !== 'films') {
               if (element.name.toLowerCase().search(data.name) !== -1) {
