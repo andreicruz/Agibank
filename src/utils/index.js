@@ -8,7 +8,7 @@ import phantom from '../assets/phantom1.jpg';
 import hopeLarge from '../assets/hope.jpg';
 import returnJediLarge from '../assets/return.jpg';
 import revengeLarge from '../assets/revenge.jpg';
-import empireLarge from '../assets/empire.jpg';
+import empireLarge from '../assets/download.jpg';
 import attackLarge from '../assets/attack.jpg';
 import forceLarge from '../assets/force.jpg';
 import phantomLarge from '../assets/phantom.jpg';
@@ -63,6 +63,41 @@ import quadinaros from '../assets/quadinaros.jpg';
 import windu from '../assets/windu.jpg';
 import mundi from '../assets/mundi.jpg';
 import fisto from '../assets/fisto.jpg';
+import eeth from '../assets/eeth.jpg';
+import gallia from '../assets/gallia.jpg';
+import saesee from '../assets/saesee.jpg';
+import yarael from '../assets/yarael.jpg';
+import koon from '../assets/koon.jpg';
+import amedda from '../assets/amedda.jpg';
+import typho from '../assets/typho.jpg';
+import corde from '../assets/corde.jpg';
+import cliegg from '../assets/cliegg.jpg';
+import poggle from '../assets/poggle.jpg';
+import unduli from '../assets/unduli.jpg';
+import barriss from '../assets/barriss.jpg';
+import dorme from '../assets/dorme.jpg';
+import dooku from '../assets/dooku.jpg';
+import prestor from '../assets/prestor.jpg';
+import jango from '../assets/jango.jpg';
+import wesell from '../assets/wesell.jpg';
+import jettster from '../assets/jettster.jpg';
+import lama from '../assets/lama.jpg';
+import taun from '../assets/taun.jpg';
+import jocasta from '../assets/jocasta.jpg';
+import r4p17 from '../assets/r4-p17.jpg';
+import tambor from '../assets/tambor.jpg';
+import hill from '../assets/hill.jpg';
+import shaak from '../assets/shaak.jpg';
+import grievous from '../assets/grievous.jpg';
+import tarfful from '../assets/tarfful.jpg';
+import raymus from '../assets/raymus.jpg';
+import moore from '../assets/moore.jpg';
+import medon from '../assets/medon.jpg';
+import finn from '../assets/finn.jpg';
+import rey from '../assets/rey.jpg';
+import dameron from '../assets/dameron.jpg';
+import bb8 from '../assets/bb8.jpg';
+import phasma from '../assets/phasma.jpg';
 
 export const listObjects = () => {
   const allMovies = [{
@@ -126,7 +161,41 @@ export const listObjects = () => {
         { name: 'windu', path: windu},
         { name: 'mundi', path: mundi},
         { name: 'fisto', path: fisto},
-        // { name: 'c-3po', path: c3po},
+        { name: 'eeth', path: eeth},
+        { name: 'gallia', path: gallia},
+        { name: 'saesee', path: saesee},
+        { name: 'yarael', path: yarael},
+        { name: 'koon', path: koon},
+        { name: 'amedda', path: amedda},
+        { name: 'typho', path: typho},
+        { name: 'cordé', path: corde},
+        { name: 'cliegg', path: cliegg},
+        { name: 'poggle', path: poggle},
+        { name: 'unduli', path: unduli},
+        { name: 'barriss', path: barriss},
+        { name: 'dormé', path: dorme},
+        { name: 'dooku', path: dooku},
+        { name: 'bail prestor', path: prestor},
+        { name: 'jango', path: jango},
+        { name: 'wesell', path: wesell},
+        { name: 'jettster', path: jettster},
+        { name: 'lama su', path: lama},
+        { name: 'taun we', path: taun},
+        { name: 'jocasta', path: jocasta},
+        { name: 'r4-p17', path: r4p17},
+        { name: 'tambor', path: tambor},
+        { name: 'san hill', path: hill},
+        { name: 'shaak ti', path: shaak},
+        { name: 'grievous', path: grievous},
+        { name: 'tarfful', path: tarfful},
+        { name: 'raymus', path: raymus},
+        { name: 'sly moore', path: moore},
+        { name: 'tion medon', path: medon},
+        { name: 'finn', path: finn},
+        { name: 'rey', path: rey},
+        { name: 'dameron', path: dameron},
+        { name: 'bb8', path: bb8},
+        { name: 'captain phasma', path: phasma},
       ],
       planets: [
         { name: 'alderaan', path: luke },

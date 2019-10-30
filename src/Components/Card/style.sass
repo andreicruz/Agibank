@@ -1,24 +1,25 @@
 .grid
   flex-wrap: wrap
-  // display: flex
-  // padding: 0px 80px
   a
     flex: 1 1 100px
-    .background
-      margin-bottom: 10px
-      border: 5px solid #000000
-      background-position: center center
-      background-repeat: no-repeat
-      background-size: cover
-      // flex-basis: 10%
-      // min-width: 100px
-      height: 325px
-      margin: 0px 0px 5px 5px
-      position: relative
-      object-fit: cover
-      transform-style: preserve-3d
-      transition: transform 0.7s 
+    .transform
+      color: white
+      text-align: center
+      text-transform: capitalize
       transform: skew(-20deg)
+      white-space: nowrap
+      .background
+        margin-bottom: 10px
+        border: 5px solid #000000
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: cover
+        height: 325px
+        margin: 0px 0px 5px 5px
+        position: relative
+        object-fit: cover
+        transform-style: preserve-3d
+        transition: transform 0.7s 
 
 .juca
   flex: 1
@@ -26,7 +27,7 @@
 @media only screen and (max-width: 1024px)
   .grid
     .background
-      transform: none
+      transform: none !important
 
 a
   flex: 1
@@ -36,18 +37,6 @@ a
 
 .hover-card
   flex-basis: 15% !important
-  // min-width: 200px !important
-
-.active-card
-  flex-basis: 30% !important
-  // transition: width 2s
-  // min-width: 1140px !important
-
-.flip-card
-  // width: 500px !important
-  background-image: none !important
-  // background-color: white !important
-  transform: skew(-20deg) rotateY(180deg) !important
 
 .grid-form--card
   border: 0px !important

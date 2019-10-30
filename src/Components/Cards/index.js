@@ -52,18 +52,11 @@ export default function CardsComponent(route) {
   }, []);
   
   useEffect(() => {
-    // setPage(apiReturn.map(item => item.next.split('=')[1]))
-    // loadReturn();
-    // if(page <= 1) {
-    //   setPage(page + 1);
-    // }
     getImages(actualRoute);
   }, [apiReturn]);
 
   useEffect(() => {
-    // if(page <= 2){
       loadReturn();
-    // }
   }, [page]);
 
   return (
