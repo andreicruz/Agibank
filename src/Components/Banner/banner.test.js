@@ -1,18 +1,19 @@
 import React from 'react';
 import Banner from './index.js';
-import { mount } from 'enzyme';
-import toJson from "enzyme-to-json"
-// import { configure } from 'enzyme';
-// import Adapter from 'enzyme-adapter-react-15';
-// configure({ adapter: new Adapter() });
+import { shallow } from 'enzyme';
+import Movies from '../../assets/Movies.jpg';
 
-it("should display a banner with links", () => {
+
+it("Should render the banner component with text and image", () => {
   const props = {
-    title: 'people',
-    image: 'people'
+    title: "jurevis",
+    image: Movies
   }
+  const bannerComponent = shallow(<Banner {...props} />)
 
-  const banner = mount(<Banner {...props}/>)
-  
-  expect(banner.find('a').at(0).text()).toEqual("people")
+  expect(bannerComponent.find('h3')).toHaveLength(1)
+  expect(bannerComponent.find('h3').text()).toEqual("jurevis")
+  expect(bannerComponent.find('div')).toHaveLength(2)
+  expect(bannerComponent.find({ className: 'banner' })).toHaveLength(1)
+  expect(bannerComponent.find({ className: 'background' })).toHaveLength(1)
 })
