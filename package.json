@@ -47,6 +47,7 @@
     "enzyme-to-json": "^3.4.3"
   },
   "jest": {
+    "verbose": true,
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.(css|scss|less)$": "jest-css-modules"
