@@ -46,11 +46,21 @@
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3"
   },
-
   "jest": {
     "transform": {
-      "\\.js$": "./node_modules/babel-jest"
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.(css|scss|less)$": "jest-css-modules"
     },
-    "transformIgnorePatterns": ["./node_modules/(?!lodash-es)"]
+    "globals": {
+      "NODE_ENV": "test"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src/*"
+    ]
   }
 }
