@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.sass';
-import ky from 'ky';
+import ky from 'ky-universal';
 import Card from '../Card/index';
 import { listObjects } from '../../utils/index.js';
 

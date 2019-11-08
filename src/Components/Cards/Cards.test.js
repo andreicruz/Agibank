@@ -1,6 +1,6 @@
 import React from 'react';
 import Cards from './index.js';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import hope from '../../assets/hope1.jpg';
 
 it("Should render the card component", () => {
@@ -8,9 +8,11 @@ it("Should render the card component", () => {
     route: 'planets'
   }
 
-  const cardsComponent = mount(<Cards {...props}/>)
-  cardsComponent.instance().getImages(props.route);
+  const cardsComponent = mount(<Cards route={`oi`}/>)
+  console.log(cardsComponent.getElements());
+  
+  cardsComponent.getElement().getImages('routes');
 
-  expect(cardsComponent.instance().state.objects[0].path).toEqual(hope)
+  expect(cardsComponent.state.objects[0].path).toEqual(hope)
 
 })
