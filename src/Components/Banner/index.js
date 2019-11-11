@@ -5,7 +5,6 @@ import { BrowserRouter as Router} from "react-router-dom";
 
 export default function Banner({title, image}) {
   return(
-    <Router>
       <Link to={title}>
         <div className="banner">
           <div className="background" style={{backgroundImage : `url(${image})`}}  >
@@ -13,6 +12,5 @@ export default function Banner({title, image}) {
           </div>
         </div>
       </Link>
-    </Router>
     )
   }

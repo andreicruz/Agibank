@@ -1,7 +1,8 @@
 import React from 'react';
 import Banner from './index.js';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Movies from '../../assets/Movies.jpg';
+import { MemoryRouter } from 'react-router-dom';
 
 
 it("Should render the banner component with text and image", () => {
@@ -9,7 +10,7 @@ it("Should render the banner component with text and image", () => {
     title: "jurevis",
     image: Movies
   }
-  const bannerComponent = shallow(<Banner {...props} />)
+  const bannerComponent = mount(<MemoryRouter><Banner {...props} /></MemoryRouter>)
 
   expect(bannerComponent.find('h3')).toHaveLength(1)
   expect(bannerComponent.find('h3').text()).toEqual("jurevis")

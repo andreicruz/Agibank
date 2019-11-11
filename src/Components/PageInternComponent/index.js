@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classNames from "classnames";
-import ky from 'ky';
+import ky from 'ky-universal';
 import './style.sass';
 import { listObjects } from '../../utils/index.js';
 
