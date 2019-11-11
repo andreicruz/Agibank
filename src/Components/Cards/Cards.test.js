@@ -1,6 +1,6 @@
 import React from 'react';
 import Cards from './index.js';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import hope from '../../assets/hope1.jpg';
 
 it("Should render the card component", () => {
